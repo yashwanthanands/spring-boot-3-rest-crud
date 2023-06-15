@@ -31,10 +31,6 @@ public class StudentRestController {
     //define endpoint for "/students" - return a list of students
     @GetMapping("/students")
     public List<Student> getStudents() {
-        List<Student> theStudents=new ArrayList<>();
-        theStudents.add(new Student("Yashwanth","Anand"));
-        theStudents.add(new Student("Hari","Anand"));
-        theStudents.add(new Student("Sourav","Ganguly"));
         return theStudents;
     }
 
