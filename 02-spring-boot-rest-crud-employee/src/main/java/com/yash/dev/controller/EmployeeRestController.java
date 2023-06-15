@@ -2,6 +2,7 @@ package com.yash.dev.controller;
 
 import com.yash.dev.dao.EmployeeDAO;
 import com.yash.dev.entity.Employee;
+import com.yash.dev.service.EmployeeService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
-    public EmployeeRestController(EmployeeDAO empDAO) {
-        employeeDAO=empDAO;
+    public EmployeeRestController(EmployeeService empService) {
+        employeeService=empService;
     }
 
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 
 }
