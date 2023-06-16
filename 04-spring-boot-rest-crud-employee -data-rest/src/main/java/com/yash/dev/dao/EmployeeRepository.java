@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @author yashwanthanands
  */
 
-@RepositoryRestResource(path="members")
+//@RepositoryRestResource(path="members")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 }
