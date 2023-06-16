@@ -6,6 +6,7 @@ import jakarta.persistence.TypedQuery;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author yashwanthanands
@@ -33,5 +34,34 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         //return the results
         return employees;
+    }
+
+    @Override
+    public Employee findById(int id) {
+        //get employee
+        Employee emp=entityManager.find(Employee.class,id);
+
+        //return employee
+        return emp;
+    }
+
+    @Transactional
+    @Override
+    public Employee save(Employee theEmployee) {
+        //save employee
+        Employee emp=entityManager.merge(theEmployee);
+
+        //return saved employee
+        return emp;
+    }
+
+    @Transactional
+    @Override
+    public void delete(int id) {
+        //find employee by id
+        Employee emp=entityManager.find(Employee.class,id);
+
+        //delete the employee
+        entityManager.remove(emp);
     }
 }
