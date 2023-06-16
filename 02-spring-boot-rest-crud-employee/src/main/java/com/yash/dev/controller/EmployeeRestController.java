@@ -5,6 +5,7 @@ import com.yash.dev.entity.Employee;
 import com.yash.dev.service.EmployeeService;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,7 +61,7 @@ public class EmployeeRestController {
     }
 
     //Add mapping for delete Employee Details by Id
-    @PutMapping("/employees")
+    @DeleteMapping("/employees/{employeeId}")
     public void deleteEmployee(@PathVariable int employeeId) {
         Employee theEmployee=employeeService.findById(employeeId);
         if(theEmployee == null) {
