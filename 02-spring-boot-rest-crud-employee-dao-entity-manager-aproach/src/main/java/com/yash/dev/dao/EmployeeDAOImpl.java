@@ -45,7 +45,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return emp;
     }
 
-    @Transactional
     @Override
     public Employee save(Employee theEmployee) {
         //save employee
@@ -55,7 +54,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return emp;
     }
 
-    @Transactional
     @Override
     public void delete(int id) {
         //find employee by id

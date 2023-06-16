@@ -5,6 +5,7 @@ import com.yash.dev.entity.Employee;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author yashwanthanands
@@ -31,11 +32,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public Employee save(Employee theEmployee) {
         return empDAO.save(theEmployee);
     }
 
     @Override
+    @Transactional
     public void delete(int id) {
        empDAO.delete(id);
     }
